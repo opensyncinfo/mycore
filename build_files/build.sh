@@ -11,7 +11,7 @@ set -ouex pipefail
 
 # this installs a package from fedora repos
 dnf5 install -y \
-  btop
+  btop \
   htop \
   nmap \
   nvim \
