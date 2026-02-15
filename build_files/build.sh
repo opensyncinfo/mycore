@@ -2,6 +2,14 @@
 
 set -ouex pipefail
 
+# Remove Cockpit
+rpm-ostree override remove \
+  cockpit-system \
+  cockpit-ws \
+  cockpit-bridge \
+  cockpit-networkmanager \
+  cockpit-storaged
+
 # Install packages
 dnf5 install -y \
   btop \
@@ -11,7 +19,7 @@ dnf5 install -y \
   nvim \
   tmux \
   && dnf clean all \
-  && rm -rf /var/cache/yum
+  && rm -rf /var/cache/dnf
 
 # Example for enabling a System Unit File
 systemctl enable podman.socket
