@@ -7,8 +7,7 @@ rpm-ostree override remove \
   cockpit-system \
   cockpit-ws \
   cockpit-bridge \
-  cockpit-networkmanager \
-  cockpit-storaged
+  cockpit-networkmanager
 
 # Install packages
 dnf5 install -y \
