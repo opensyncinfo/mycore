@@ -2,12 +2,13 @@
 
 set -ouex pipefail
 
+# Get all cockpit packages
+COCKPIT_PACKAGES=$(rpm -qa --queryformat='%{NAME} ' | grep cockpit)
+
 # Remove Cockpit
-rpm-ostree override remove \
-  cockpit-system \
-  cockpit-ws \
-  cockpit-bridge \
-  cockpit-networkmanager
+if [ -n "$COCKPIT_PACKAGES" ]; then
+  rpm-ostree override remove $COCKPIT_PACKAGES
+fi
 
 # Install packages
 dnf5 install -y \
