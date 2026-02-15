@@ -7,7 +7,7 @@ COCKPIT_PACKAGES=$(rpm -qa --queryformat='%{NAME}\n' | grep 'cockpit-') || true
 
 # Remove Cockpit
 if [ -n "$COCKPIT_PACKAGES" ]; then
-  rpm-ostree override remove $COCKPIT_PACKAGES
+  rpm-ostree override remove $(echo $COCKPIT_PACKAGES | xargs)
 fi
 
 # Install packages
