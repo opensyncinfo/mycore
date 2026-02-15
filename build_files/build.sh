@@ -3,7 +3,7 @@
 set -ouex pipefail
 
 # Get all cockpit packages
-COCKPIT_PACKAGES=$(rpm -qa | grep 'cockpit-')
+COCKPIT_PACKAGES=$(rpm -qa --queryformat='%{NAME}\n' | grep 'cockpit-') || true
 
 # Remove Cockpit
 if [ -n "$COCKPIT_PACKAGES" ]; then
