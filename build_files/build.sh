@@ -17,6 +17,7 @@ dnf5 install -y \
   mc \
   nmap \
   nvim \
+  qemu-guest-agent \
   tmux \
   && dnf clean all \
   && rm -rf /var/cache/dnf
